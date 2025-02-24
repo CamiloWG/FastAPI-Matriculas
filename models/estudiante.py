@@ -15,4 +15,4 @@ class Estudiante(Base):
     estrato = Column(Enum('1', '2', '3', '4', '5'), nullable=False)
     direccion = Column(Text)
 
-    solicitudes = relationship("SolicitudMatricula", back_populates="estudiante")
+    #solicitudes = relationship("SolicitudMatricula", back_populates="estudiante")

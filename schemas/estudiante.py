@@ -26,3 +26,10 @@ class EstudianteBase(BaseModel):
 class EstudianteCreate(EstudianteBase):
     pass
 
+
+
+class EstudianteResponse(EstudianteBase):
+    id_estudiante: int
+
+    class Config:
+        from_attributes = True

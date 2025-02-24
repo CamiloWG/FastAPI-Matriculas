@@ -15,11 +15,11 @@ SessionLocal = sessionmaker(autocommit=False, bind=engine, autoflush=False)
 
 Base = declarative_base()
 
-Base.metadata.create_all(bind=engine)
 
+def init():
+    Base.metadata.create_all(bind=engine)
 
-
-def get_db():
+def get():
     db = SessionLocal()
     try:
         yield db
