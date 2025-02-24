@@ -26,6 +26,16 @@ class EstudianteBase(BaseModel):
 class EstudianteCreate(EstudianteBase):
     pass
 
+class EstudianteUpdate(BaseModel):
+    nombre: Optional[str] = None
+    apellido: Optional[str] = None
+    documento_identidad: Optional[str] = None
+    fecha_nacimiento: Optional[date] = None
+    email: Optional[EmailStr] = None
+    telefono: Optional[str] = None
+    estrato: Optional[EstratoEnum] = None
+    direccion: Optional[str] = None
+
 
 
 class EstudianteResponse(EstudianteBase):
