@@ -1,6 +1,6 @@
 *.pyc
 *.pyd
 
-
+__pycache__
 */__pycache__
 ApiEnv
