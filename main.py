@@ -1,8 +1,12 @@
 from config import database as db
 from models.estudiante import Estudiante
 from schemas.estudiante import EstudianteResponse, EstudianteCreate, EstudianteUpdate
+from models.administrativo import Administrativo
+from models.usuario import Usuario
 from sqlalchemy.orm import Session
-from routers import estudiante_router, auth_router
+from models.grado import Grado
+from models.solicitud_matricula import SolicitudMatricula
+from routers import estudiante_router, auth_router, solicitud_matricula_router
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.openapi.docs import (
     get_redoc_html,
@@ -29,4 +33,5 @@ async def custom_swagger_ui_html():
 
 app.include_router(estudiante_router.router)
 app.include_router(auth_router.router)
+app.include_router(solicitud_matricula_router.router)
     
