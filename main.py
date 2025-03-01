@@ -11,7 +11,10 @@ from fastapi.openapi.docs import (
 )
 
 app = FastAPI(docs_url=None, redoc_url=None)
-db.init()
+
+# Inicializar la base de datos
+db.init()  # Esto debería configurar la conexión a la base de datos
+db.Base.metadata.create_all(bind=db.engine)
 
 @app.get("/docs", include_in_schema=False)
 async def custom_swagger_ui_html():

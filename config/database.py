@@ -1,5 +1,4 @@
 import os
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm.session import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -15,11 +14,16 @@ SessionLocal = sessionmaker(autocommit=False, bind=engine, autoflush=False)
 
 Base = declarative_base()
 
+# IMPORTAR LOS MODELOS EN ORDEN CORRECTO
+from models.administrativo import Administrativo
+from models.usuario import Usuario
 
 def init():
+    """Inicializa la base de datos y crea las tablas si no existen."""
     Base.metadata.create_all(bind=engine)
 
 def get():
+    """Obtiene una sesión de la base de datos."""
     db = SessionLocal()
     try:
         yield db
